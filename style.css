@@ -1,0 +1,109 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #2e8b57;
+}
+
+.form-section, .filters, .limit-warning {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input, select, button {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #2e8b57;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #276746;
+}
+
+.summary-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.card {
+  flex: 1;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.card.income { background-color: #4caf50; }
+.card.expense { background-color: #f44336; }
+.card.balance { background-color: #2196f3; }
+
+#warning {
+  display: none;
+  color: red;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.transactions ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.transactions li {
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.charts canvas {
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.download-btn {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #673ab7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+.download-btn:hover {
+  background-color: #5e35b1;
+}

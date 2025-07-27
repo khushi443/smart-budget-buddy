@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Budget Buddy 💰</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="manifest" href="manifest.json" />
+ <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('service-worker.js');
+    });
+  }
+</script>
+
+  <meta name="theme-color" content="#2e8b57">
+  <link rel="icon" href="icon-192.png">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Smart Budget Buddy 💰</h1>
+    </header>
+
+    <section class="form-section">
+      <input type="number" id="amount" placeholder="Enter amount" />
+      <input type="text" id="note" placeholder="Enter note" />
+      <select id="type">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <select id="category">
+        <option value="Food">Food</option>
+        <option value="Travel">Travel</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Salary">Salary</option>
+        <option value="Other">Other</option>
+      </select>
+      <button onclick="addTransaction()">➕ Add</button>
+    </section>
+
+    <section class="filters">
+      <input type="text" id="search" placeholder="🔍 Search..." onkeyup="filterTransactions()" />
+      <select id="categoryFilter" onchange="filterTransactions()">
+        <option value="all">All Categories</option>
+        <option value="Food">Food</option>
+        <option value="Travel">Travel</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Salary">Salary</option>
+        <option value="Other">Other</option>
+      </select>
+    </section>
+
+    <section class="summary-cards">
+      <div class="card income">Income: ₹<span id="totalIncome">0</span></div>
+      <div class="card expense">Expense: ₹<span id="totalExpense">0</span></div>
+      <div class="card balance">Balance: ₹<span id="balance">0</span></div>
+    </section>
+
+    <section class="limit-warning">
+      <label>Daily Limit: </label>
+      <input type="number" id="dailyLimit" onchange="checkLimit()" />
+      <p id="warning">⚠️ Limit exceeded!</p>
+    </section>
+
+    <section class="transactions">
+      <h3>Transactions</h3>
+      <ul id="transactionList"></ul>
+    </section>
+
+    <section class="charts">
+      <h3>Visual Breakdown</h3>
+      <canvas id="pieChart" width="300" height="300"></canvas>
+      <canvas id="barChart" width="400" height="300"></canvas>
+    </section>
+
+    <button class="download-btn" onclick="downloadPDF()">⬇️ Download PDF</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
